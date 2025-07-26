@@ -1,4 +1,4 @@
-name: LightAntiCheat
+name: RhythmAntiCheat
 version: '$version'
 main: me.vekster.lightanticheat.Main
 api-version: '1.13'
