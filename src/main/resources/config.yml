@@ -2,7 +2,7 @@ enabled: true
 
 ## Customizable plugin messages
 messages:
-  prefix: "&8(&#FF450ELight&8)&f"
+  prefix: '&8(&bRhythmAntiCheat&8)&f'
   # Hex colors are supported since MC 1.16. Example: &#FF450E
   # In MC 1.13-1.15, the hex colors are replaced with the nearest Bukkit colors
   hex-color-codes: true
@@ -10,63 +10,65 @@ messages:
   # All the global placeholder can be found below
   command-messages:
     help:
-      message: "%prefix% LightAntiCheat %version% is running"
+      message: '%prefix% LightAntiCheat %version% 正在运行'
     reload:
       # Local placeholders: %time%
-      message: "%prefix% Successfully reloaded the config &7(%time%ms)"
+      message: '%prefix% 成功重新加载配置文件 &7(%time%ms)'
     alerts:
-      toggled-on-message: "%prefix% Alerts are enabled!"
-      toggled-off-message: "%prefix% Alerts are disabled!"
+      toggled-on-message: '%prefix% 启用警报消息!'
+      toggled-off-message: '%prefix% 禁用警报消息!'
     tps:
       # Local placeholders: %tps%
-      message: "%prefix% TPS from the last 30 seconds: &f%tps%"
+      message: '%prefix% 过去 30 秒的 TPS: &f%tps%'
     ping:
       # Local placeholders: %ping%, %connection-stability%
-      message: "%prefix% %name%&7's ping is &f%ping% &7(&f%connection-stability%&7 stability)"
+      message: '%prefix% %name%&7''s ping is &f%ping% &7(&f%connection-stability%&7 stability)'
       connection-stability:
-        high: "&ahigh&r"
-        medium: "&emedium&r"
-        low: "&clow&r"
+        high: '&ahigh&r'
+        medium: '&emedium&r'
+        low: '&clow&r'
     client:
       # Local placeholders: %client-brand%
-      message: "%prefix% %name%&7's client is &f%client-brand%"
+      message: '%prefix% %name%&7''使用的客户端是 &f%client-brand%'
     cps:
       # Local placeholders: %cps%
-      message: "%prefix% %name%&7's CPS is &f%cps%"
+      message: '%prefix% %name%&7''的CPS速度是 &f%cps%'
     checks:
       # Local placeholders: %checks%, %movement_checks%, %combat_checks%,
       # %interaction_checks%, %inventory_checks%, %packet_checks%
-      message: "%prefix% Checks: %checks%"
+      message: '%prefix% Checks: %checks%'
   error-messages:
-    no-permission: "%prefix% You don't have enough permissions"
+    no-permission: '%prefix% 你没有权限使用s'
     # Local placeholders: %usage%
-    invalid-format: "%prefix% Usage: &7%usage%"
+    invalid-format: '%prefix% Usage: &7%usage%'
 
 ## In game notifications of violations or/and punishments
 alerts:
   broadcast-violations:
     enabled: true
-    message: "%prefix% %name% was flagged for %check% (%vio%/%punishment-vio%)"
+    message: '%prefix% %name% 触发了检测 %check% (%vio%/%punishment-vio%)'
     # Broadcasts violations of a player no more than 1 time in X ms
     cooldown: 0
     # Leave this field empty not to hover any text
-    on-hover: "&7Check: &#FF450E%check% (%check-description%)%new-line%&7World: &#FF450E%world%%new-line%&7Cords: &#FF450E%x% %y% %z%%new-line%&7Client: &#FF450E%client-brand%"
+    on-hover: '&7Check: &#FF450E%check% (%check-description%)%new-line%&7World: &#FF450E%world%%new-line%&7Cords:
+      &#FF450E%x% %y% %z%%new-line%&7Client: &#FF450E%client-brand%'
     # Local placeholders: %teleport-location%
-    on-click: "/light teleport %teleport-location%"
+    on-click: /light teleport %teleport-location%
   broadcast-punishments:
     enabled: true
-    message: "%prefix% %name% was punished for %check%"
+    message: '%prefix% %name% 因为使用 %check% 而被惩罚'
     # Broadcasts punishments of a player no more than 1 time in X ms
     cooldown: 0
     # Leave this field empty not to hover any text
-    on-hover: "&7Check: &#FF450E%check% (%check-description%)%new-line%&7World: &#FF450E%world%%new-line%&7Cords: &#FF450E%x% %y% %z%%new-line%&7Client: &#FF450E%client-brand%"
+    on-hover: '&7Check: &#FF450E%check% (%check-description%)%new-line%&7World: &#FF450E%world%%new-line%&7Cords:
+      &#FF450E%x% %y% %z%%new-line%&7Client: &#FF450E%client-brand%'
     # Local placeholders: %teleport-location%
-    on-click: "/light teleport %teleport-location%"
+    on-click: /light teleport %teleport-location%
 
 ## Log file
 log:
   enabled: true
-  file: "logs/%date-day%.log"
+  file: logs/%date-day%.log
   # Global placeholders: %prefix%, %version%, %name%, %uuid%, %ip%,
   # %check%, %check-type%, %check-description%
   # %vio%, %punishment-vio%, %setback-vio%,
@@ -75,12 +77,16 @@ log:
   # %date-day%, %date-hrs%, %date-min%, %date-sec%
   log-violations:
     enabled: true
-    message: "(%date-sec%) %name% was flagged [Check: %check% (%check-description%)] [Violations: %vio%/%punishment-vio%] [TPS: %tps%] [Ping: %ping%ms (%connection-stability% stability)] [Client: %client-brand%] [Location: %world% %x% %y% %z%]"
+    message: '(%date-sec%) %name% was flagged [Check: %check% (%check-description%)] [Violations:
+      %vio%/%punishment-vio%] [TPS: %tps%] [Ping: %ping%ms (%connection-stability% stability)]
+      [Client: %client-brand%] [Location: %world% %x% %y% %z%]'
     # Logs violations of a player no more than every X 1 time in X ms
     cooldown: 1000
   log-punishments:
     enabled: true
-    message: "(%date-sec%) %name% was punished [Check: %check% (%check-description%)] [Violations: %vio%/%punishment-vio%] [TPS: %tps%]  [Ping: %ping%ms (%connection-stability% stability)] [Client: %client-brand%] [Location: %world% %x% %y% %z%]"
+    message: '(%date-sec%) %name% was punished [Check: %check% (%check-description%)]
+      [Violations: %vio%/%punishment-vio%] [TPS: %tps%]  [Ping: %ping%ms (%connection-stability%
+      stability)] [Client: %client-brand%] [Location: %world% %x% %y% %z%]'
     # Logs punishments of a player no more frequently than 1 time in X ms
     cooldown: 0
 
@@ -91,17 +97,17 @@ discord-webhook:
   # Server Settings -> Integrations -> Webhooks -> New Webhook
   send-violations:
     enabled: false
-    webhook-url: ""
-    message: "```%name% was flagged for %check% (%check-description%) (%vio%/%punishment-vio%)```"
+    webhook-url: ''
+    message: '```%name% was flagged for %check% (%check-description%) (%vio%/%punishment-vio%)```'
     cooldown: 2000
   send-punishments:
     enabled: false
     #This url can either be the same as the first one or different
-    webhook-url: ""
-    message: "```%name% was punished for %check% (%check-description%)```"
+    webhook-url: ''
+    message: '```%name% was punished for %check% (%check-description%)```'
     cooldown: 0
 
-## Bypass permissions
+## Specific bypass permissions
 permission:
   # 'lightanticheat.bypess.flight_a' is a specific bypass permission
   # Whether the specific bypass permissions should be enabled
@@ -130,8 +136,6 @@ lag-protection:
   ignore-time-on-teleport: 0
   # Prevents gliding and riptiding players from entering into unloaded chunks
   prevent-entering-into-unloaded-chucks: true
-  # Slightly improves accuracy in laggy conditions
-  prioritize-accuracy: true
 
 ## Basically, there is no need to configure 'geyser-hook' selection,
 ## unless the Geyser player linking is enabled and uses a local database
@@ -146,7 +150,7 @@ geyser-hook:
   prefix:
     # Whether a player whose name starts with the prefix counted as Bedrock players
     enabled: true
-    prefix-string: "."
+    prefix-string: .
 
 ## The update checker will let you know if a newer version is available
 update-checker:
@@ -155,11 +159,11 @@ update-checker:
     console:
       enabled: false
       # Local placeholders: %latest-version%
-      message: "%prefix% LightAntiCheat %latest-version% is available!"
+      message: '%prefix% LightAntiCheat %latest-version% is available!'
     on-join:
       enabled: false
       # Local placeholders: %latest-version%
-      message: "%prefix% LightAntiCheat %latest-version% is available!"
+      message: '%prefix% LightAntiCheat %latest-version% is available!'
       # Whether 'lightanticheat.alerts.notify' permission should be required
       require-permission: true
 
@@ -173,7 +177,7 @@ bstats:
 ## It's not recommended to disable the API unless it causes any issues
 api:
   # Whether the developer API is enabled
-  # The API may be used be other plugins
+  # The API can be used be other plugins
   enabled: true
 
 checks:
@@ -188,19 +192,19 @@ checks:
           # Should the punishment commands be executed
           punishable: true
           # After X violations, the punishment commands are run
-          punishment-vio: 40
+          punishment-vio: 1
           # The commands
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         # The setback feature
         setback:
           # If set to 'true', the player will be frozen on getting a violation
           # Notes: It's NOT recommended to use the setback because
           # 1. It will notify the hackers making the checks easier to bypass
           # 2. Using a punishment command is simply more efficient
-          setback: false
+          setback: true
           # After X violations, the player's actions should be cancelled
-          setback-vio: 21
+          setback-vio: 1
         # Exempts from flight_a check if the conditions are not satisfied
         detection:
           # If the server's TPS is lower than X, this check is bypassed
@@ -216,12 +220,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -231,12 +235,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -247,12 +251,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 30
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 16
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -262,12 +266,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 35
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 18
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -277,12 +281,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -292,12 +296,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 30
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 16
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -307,12 +311,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 30
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 16
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -322,12 +326,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 50
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 26
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -338,12 +342,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 20
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 17
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -353,12 +357,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 25
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 22
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -369,12 +373,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 20
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 7
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -384,12 +388,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 20
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 11
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -400,12 +404,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -415,12 +419,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -431,12 +435,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 25
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 13
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -447,12 +451,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 25
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 13
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -463,12 +467,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 4
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -479,12 +483,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 35
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 18
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -495,12 +499,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 35
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 18
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -511,12 +515,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -526,12 +530,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -541,12 +545,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 12
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 10
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -557,12 +561,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 7
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -575,12 +579,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 6
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 4
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -590,12 +594,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 8
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 5
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -605,12 +609,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 4
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 3
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -620,11 +624,11 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 5
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
           min-tps: 5.0
@@ -636,12 +640,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 10
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 6
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -651,12 +655,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 6
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 4
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -669,9 +673,9 @@ checks:
           punishable: true
           punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
           min-tps: 5.0
@@ -682,11 +686,11 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
           min-tps: 5.0
@@ -698,12 +702,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 2
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -713,12 +717,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 2
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -729,12 +733,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 12
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 7
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -747,12 +751,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 2
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -763,12 +767,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 2
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -779,12 +783,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 10
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 6
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -794,12 +798,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 5
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 3
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -810,12 +814,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 2
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -826,12 +830,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 15
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 8
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -842,12 +846,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 10
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 6
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -857,12 +861,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 5
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 3
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -873,12 +877,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 10
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 6
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -888,12 +892,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 10
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 6
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -906,11 +910,11 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 2
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
           min-tps: 5.0
@@ -921,11 +925,11 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 2
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
           min-tps: 5.0
@@ -937,12 +941,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 2
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -952,12 +956,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 2
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -968,12 +972,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 5
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 4
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -983,12 +987,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 20
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 19
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -998,12 +1002,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 15
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 14
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -1013,12 +1017,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 10
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 9
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -1031,12 +1035,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 2
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -1047,12 +1051,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 4
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 3
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -1065,12 +1069,12 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
-          setback-vio: 2
+          setback: true
+          setback-vio: 1
         detection:
           min-tps: 5.0
           max-ping: 10000
@@ -1081,11 +1085,11 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 2
+          punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - kick %name% %check%
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
           min-tps: 5.0
