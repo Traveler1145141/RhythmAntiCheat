@@ -2,7 +2,7 @@ enabled: true
 
 ## Customizable plugin messages
 messages:
-  prefix: "&8(&#FF450ERhythmAntiCheat&8)&f"
+  prefix: '&b&lRhythmAntiCheat&b >>&r '
   # Hex colors are supported since MC 1.16. Example: &#FF450E
   # In MC 1.13-1.15, the hex colors are replaced with the nearest Bukkit colors
   hex-color-codes: true
@@ -10,63 +10,87 @@ messages:
   # All the global placeholder can be found below
   command-messages:
     help:
-      message: "%prefix% LightAntiCheat %version% is running"
+      message: '%prefix% LightAntiCheat &b%version%&r is running'
     reload:
       # Local placeholders: %time%
-      message: "%prefix% Successfully reloaded the config &7(%time%ms)"
+      message: '%prefix% &aSuccessfully&f reloaded the config &7(in %time%ms)'
     alerts:
-      toggled-on-message: "%prefix% Alerts are enabled!"
-      toggled-off-message: "%prefix% Alerts are disabled!"
+      toggled-on-message: '%prefix% Alerts are now &aenabled&r.'
+      toggled-off-message: '%prefix% Alerts are now &cdisabled&r.'
     tps:
       # Local placeholders: %tps%
-      message: "%prefix% TPS from the last 30 seconds: &f%tps%"
+      message: '%prefix% TPS from the last &b&n30&r seconds: &a%tps%'
     ping:
       # Local placeholders: %ping%, %connection-stability%
-      message: "%prefix% %name%&7's ping is &f%ping% &7(&f%connection-stability%&7 stability)"
+      message: '%prefix% &b%name%''s&f ping is &a%ping%&f &7(%connection-stability%&7 stability)'
       connection-stability:
-        high: "&ahigh&r"
-        medium: "&emedium&r"
-        low: "&clow&r"
+        high: '&ahigh&r'
+        medium: '&emedium&r'
+        low: '&clow&r'
     client:
       # Local placeholders: %client-brand%
-      message: "%prefix% %name%&7's client is &f%client-brand%"
+      message: '%prefix% &b%name%''s&f client is &a%client-brand%'
     cps:
       # Local placeholders: %cps%
-      message: "%prefix% %name%&7's CPS is &f%cps%"
+      message: '%prefix% %name%&7''s CPS is &f%cps%'
     checks:
       # Local placeholders: %checks%, %movement_checks%, %combat_checks%,
       # %interaction_checks%, %inventory_checks%, %packet_checks%
-      message: "%prefix% Checks: %checks%"
+      message: |2-
+      
+        &b&lLightAntiCheat&f Checks &7(&aEnabled&7, &cDisabled&7)&f:
+      
+        &f----------------------------------------------------
+      
+        &8» &fMovement checks:
+        %movement_checks%
+      
+        &8» &fCombat checks:
+        %combat_checks%
+      
+        &8» &fInteraction checks:
+        %interaction_checks%
+      
+        &8» &fInventory checks:
+        %inventory_checks%
+      
+        &8» &fPacket checks:
+        %packet_checks%
+      
+        &f----------------------------------------------------
   error-messages:
-    no-permission: "%prefix% You don't have enough permissions"
+    no-permission: '&fUnknown command. Type "/help" for help.'
     # Local placeholders: %usage%
-    invalid-format: "%prefix% Usage: &7%usage%"
+    invalid-format: '&c⚠&f Usage: &a%usage%'
 
 ## In game notifications of violations or/and punishments
 alerts:
   broadcast-violations:
     enabled: true
-    message: "%prefix% %name% was flagged for %check% (%vio%/%punishment-vio%)"
+    message: '%prefix%&f%name% » &b%check%&7 (%check-description%)&7 [VL: &b%vio%&8/&b%punishment-vio%&7]'
     # Broadcasts violations of a player no more than 1 time in X ms
     cooldown: 0
     # Leave this field empty not to hover any text
-    on-hover: "&7Check: &#FF450E%check% (%check-description%)%new-line%&7World: &#FF450E%world%%new-line%&7Cords: &#FF450E%x% %y% %z%%new-line%&7Client: &#FF450E%client-brand%"
+    on-hover: "&7Check: &b%check% &7(%check-description%) \n&7Location: &7X: &b%x% &7Y:\
+      \ &b%y% &7Z: &b%z% &7(%world%) \n&7Client: &b%client-brand%\n&7Ping: &b%ping% &7(%connection-stability%&7\
+      \ stability)\n&7VL: &b%vio% &7(Max: %punishment-vio%)\n\n&fClick to teleport to\
+      \ the player."
     # Local placeholders: %teleport-location%
-    on-click: "/light teleport %teleport-location%"
+    on-click: /light teleport %teleport-location%
   broadcast-punishments:
     enabled: true
-    message: "%prefix% %name% was punished for %check%"
+    message: '&cAntiCheat&r &f%name%&7 was punished for using forbidden client modification.'
     # Broadcasts punishments of a player no more than 1 time in X ms
     cooldown: 0
     # Leave this field empty not to hover any text
-    on-hover: "&7Check: &#FF450E%check% (%check-description%)%new-line%&7World: &#FF450E%world%%new-line%&7Cords: &#FF450E%x% %y% %z%%new-line%&7Client: &#FF450E%client-brand%"
+    on-hover: ''
     # Local placeholders: %teleport-location%
-    on-click: "/light teleport %teleport-location%"
+    on-click: ''
 
 ## Log file
 log:
   enabled: true
-  file: "logs/%date-day%.log"
+  file: logs/%date-day%.log
   # Global placeholders: %prefix%, %version%, %name%, %uuid%, %ip%,
   # %check%, %check-type%, %check-description%
   # %vio%, %punishment-vio%, %setback-vio%,
@@ -75,12 +99,16 @@ log:
   # %date-day%, %date-hrs%, %date-min%, %date-sec%
   log-violations:
     enabled: true
-    message: "(%date-sec%) %name% was flagged [Check: %check% (%check-description%)] [Violations: %vio%/%punishment-vio%] [TPS: %tps%] [Ping: %ping%ms (%connection-stability% stability)] [Client: %client-brand%] [Location: %world% %x% %y% %z%]"
+    message: '(%date-sec%) %name% was flagged [Check: %check% (%check-description%)] [Violations:
+      %vio%/%punishment-vio%] [TPS: %tps%] [Ping: %ping%ms (%connection-stability% stability)]
+      [Client: %client-brand%] [Location: %world% %x% %y% %z%]'
     # Logs violations of a player no more than every X 1 time in X ms
     cooldown: 1000
   log-punishments:
     enabled: true
-    message: "(%date-sec%) %name% was punished [Check: %check% (%check-description%)] [Violations: %vio%/%punishment-vio%] [TPS: %tps%]  [Ping: %ping%ms (%connection-stability% stability)] [Client: %client-brand%] [Location: %world% %x% %y% %z%]"
+    message: '(%date-sec%) %name% was punished [Check: %check% (%check-description%)]
+      [Violations: %vio%/%punishment-vio%] [TPS: %tps%]  [Ping: %ping%ms (%connection-stability%
+      stability)] [Client: %client-brand%] [Location: %world% %x% %y% %z%]'
     # Logs punishments of a player no more frequently than 1 time in X ms
     cooldown: 0
 
@@ -91,14 +119,14 @@ discord-webhook:
   # Server Settings -> Integrations -> Webhooks -> New Webhook
   send-violations:
     enabled: false
-    webhook-url: ""
-    message: "```%name% was flagged for %check% (%check-description%) (%vio%/%punishment-vio%)```"
+    webhook-url: ''
+    message: '```%name% was flagged for %check% (%check-description%) (%vio%/%punishment-vio%)```'
     cooldown: 2000
   send-punishments:
     enabled: false
     #This url can either be the same as the first one or different
-    webhook-url: ""
-    message: "```%name% was punished for %check% (%check-description%)```"
+    webhook-url: ''
+    message: '```%name% was punished for %check% (%check-description%)```'
     cooldown: 0
 
 ## Bypass permissions
@@ -146,20 +174,20 @@ geyser-hook:
   prefix:
     # Whether a player whose name starts with the prefix counted as Bedrock players
     enabled: true
-    prefix-string: "."
+    prefix-string: .
 
 ## The update checker will let you know if a newer version is available
 update-checker:
-  enabled: false
+  enabled: true
   notification:
     console:
       enabled: false
       # Local placeholders: %latest-version%
-      message: "%prefix% LightAntiCheat %latest-version% is available!"
+      message: '%prefix% LightAntiCheat %latest-version% is available!'
     on-join:
-      enabled: false
+      enabled: true
       # Local placeholders: %latest-version%
-      message: "%prefix% LightAntiCheat %latest-version% is available!"
+      message: '%prefix% LightAntiCheat %latest-version% is available!'
       # Whether 'lightanticheat.alerts.notify' permission should be required
       require-permission: true
 
@@ -188,23 +216,23 @@ checks:
           # Should the punishment commands be executed
           punishable: true
           # After X violations, the punishment commands are run
-          punishment-vio: 40
+          punishment-vio: 30
           # The commands
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         # The setback feature
         setback:
           # If set to 'true', the player will be frozen on getting a violation
           # Notes: It's NOT recommended to use the setback because
           # 1. It will notify the hackers making the checks easier to bypass
           # 2. Using a punishment command is simply more efficient
-          setback: false
+          setback: true
           # After X violations, the player's actions should be cancelled
-          setback-vio: 21
+          setback-vio: 10
         # Exempts from flight_a check if the conditions are not satisfied
         detection:
           # If the server's TPS is lower than X, this check is bypassed
-          min-tps: 5.0
+          min-tps: 17.0
           # If the player's ping is higher than X, this check is bypassed
           # The ping can't be higher than 10,000
           max-ping: 10000
@@ -216,14 +244,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 10
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -231,14 +259,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 10
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -249,12 +277,12 @@ checks:
           punishable: true
           punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 16
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -264,12 +292,12 @@ checks:
           punishable: true
           punishment-vio: 35
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 18
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -277,14 +305,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 10
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -294,12 +322,12 @@ checks:
           punishable: true
           punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 16
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -309,12 +337,12 @@ checks:
           punishable: true
           punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 16
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -324,12 +352,12 @@ checks:
           punishable: true
           punishment-vio: 50
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 26
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -340,12 +368,12 @@ checks:
           punishable: true
           punishment-vio: 20
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 17
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -355,12 +383,12 @@ checks:
           punishable: true
           punishment-vio: 25
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 22
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -371,12 +399,12 @@ checks:
           punishable: true
           punishment-vio: 20
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 7
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -386,12 +414,12 @@ checks:
           punishable: true
           punishment-vio: 20
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 11
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -400,14 +428,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 10
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -415,14 +443,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 10
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -433,12 +461,12 @@ checks:
           punishable: true
           punishment-vio: 25
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 13
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -449,12 +477,12 @@ checks:
           punishable: true
           punishment-vio: 25
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 13
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -465,12 +493,12 @@ checks:
           punishable: true
           punishment-vio: 3
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 4
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -481,12 +509,12 @@ checks:
           punishable: true
           punishment-vio: 35
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 18
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -497,12 +525,12 @@ checks:
           punishable: true
           punishment-vio: 35
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 18
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -511,14 +539,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 10
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -526,14 +554,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 40
+          punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
-          setback-vio: 21
+          setback: true
+          setback-vio: 10
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -543,12 +571,12 @@ checks:
           punishable: true
           punishment-vio: 12
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 10
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -559,12 +587,12 @@ checks:
           punishable: true
           punishment-vio: 3
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 7
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -577,27 +605,27 @@ checks:
           punishable: true
           punishment-vio: 6
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 4
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
       killaura_b:
-        enabled: true
+        enabled: false
         punishment:
           punishable: true
           punishment-vio: 8
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 5
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -607,12 +635,12 @@ checks:
           punishable: true
           punishment-vio: 4
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 3
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -622,12 +650,12 @@ checks:
           punishable: true
           punishment-vio: 5
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -638,12 +666,12 @@ checks:
           punishable: true
           punishment-vio: 10
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 6
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -653,28 +681,28 @@ checks:
           punishable: true
           punishment-vio: 6
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 4
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
     criticals:
       criticals_a:
-        enabled: true
+        enabled: false
         punishment:
           punishable: true
           punishment-vio: 1
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -684,12 +712,12 @@ checks:
           punishable: true
           punishment-vio: 3
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -700,12 +728,12 @@ checks:
           punishable: true
           punishment-vio: 3
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 2
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -715,12 +743,12 @@ checks:
           punishable: true
           punishment-vio: 3
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 2
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -731,15 +759,15 @@ checks:
           punishable: true
           punishment-vio: 12
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 7
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
-          bedrock: true
+          bedrock: false
   # Interaction checks
   interaction:
     airplace:
@@ -749,12 +777,12 @@ checks:
           punishable: true
           punishment-vio: 3
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 2
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -763,14 +791,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 10
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
           setback: false
           setback-vio: 2
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -781,12 +809,12 @@ checks:
           punishable: true
           punishment-vio: 10
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 6
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -796,12 +824,12 @@ checks:
           punishable: true
           punishment-vio: 5
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 3
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -812,12 +840,12 @@ checks:
           punishable: true
           punishment-vio: 3
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 2
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -826,14 +854,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 15
+          punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 8
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -844,12 +872,12 @@ checks:
           punishable: true
           punishment-vio: 10
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 6
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -859,12 +887,12 @@ checks:
           punishable: true
           punishment-vio: 5
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 3
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -875,12 +903,12 @@ checks:
           punishable: true
           punishment-vio: 10
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 6
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -890,12 +918,12 @@ checks:
           punishable: true
           punishment-vio: 10
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 6
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -908,12 +936,12 @@ checks:
           punishable: true
           punishment-vio: 2
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -923,12 +951,12 @@ checks:
           punishable: true
           punishment-vio: 2
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -939,12 +967,12 @@ checks:
           punishable: true
           punishment-vio: 3
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 2
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -954,12 +982,12 @@ checks:
           punishable: true
           punishment-vio: 3
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 2
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -970,12 +998,12 @@ checks:
           punishable: true
           punishment-vio: 5
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 4
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -985,12 +1013,12 @@ checks:
           punishable: true
           punishment-vio: 20
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 19
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -1000,27 +1028,27 @@ checks:
           punishable: true
           punishment-vio: 15
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 14
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
       badpackets_d:
-        enabled: true
+        enabled: false
         punishment:
           punishable: true
           punishment-vio: 10
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 9
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -1031,14 +1059,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 10
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 2
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -1047,14 +1075,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 4
+          punishment-vio: 10
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 3
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -1065,14 +1093,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 3
+          punishment-vio: 30
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 2
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
@@ -1081,14 +1109,14 @@ checks:
         enabled: true
         punishment:
           punishable: true
-          punishment-vio: 2
+          punishment-vio: 10
           commands:
-            - "kick %name% %check%"
+          - tempbanip %name% 1h &cUnfair advantage
         setback:
-          setback: false
+          setback: true
           setback-vio: 1
         detection:
-          min-tps: 5.0
+          min-tps: 17.0
           max-ping: 10000
           java: true
           bedrock: true
