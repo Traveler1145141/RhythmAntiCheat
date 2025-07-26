@@ -135,7 +135,6 @@ public class Main extends JavaPlugin {
         registerCheckListener(new SpeedB());
         registerCheckListener(new SpeedD());
         registerCheckListener(new SpeedE());
-        registerCheckListener(new SpeedE());
         registerCheckListener(new SpeedF());
         registerCheckListener(new SpeedC());
         registerCheckListener(new StepA());
