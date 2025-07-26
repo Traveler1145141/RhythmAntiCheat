@@ -6,7 +6,7 @@ Supported MC versions: 1.8-1.21. Folia, Geyser and [other plugins](F-A-Q.md) are
 * More precise config: [MILKv2's config](https://github.com/MILKv2/lightanticheat-config)
 
 ## 需要中文版？
-(点我！)[https://github.com/Traveler1145141/RhythmAntiCheat/edit/main/README_CN.md]
+[点我！](https://github.com/Traveler1145141/RhythmAntiCheat/edit/main/README_CN.md)
 
 ## Documentation
 ### Features:
