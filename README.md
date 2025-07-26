@@ -1,14 +1,8 @@
-# LightAntiCheat
-A lightweight and customizable anticheat, designed to detect common hacks.<br>
+# RhythmAntiCheat
+fork from lightanticheat.<br>
 Supported MC versions: 1.8-1.21. Folia, Geyser and [other plugins](F-A-Q.md) are also compatible.
 
 ## Links
-* [SpigotMC page](https://www.spigotmc.org/resources/lightanticheat.112053/)
-* [PaperMC page](https://hangar.papermc.io/Vekster/LightAntiCheat)
-* [Modrinth page](https://modrinth.com/plugin/lightanticheat)
-* [Discord server](https://discord.gg/EQExhK8Ghm)
-* List of checks: [CHECKS.md](CHECKS.md)
-* Frequently asked questions: [F-A-Q.md](F-A-Q.md)
 * More precise config: [MILKv2's config](https://github.com/MILKv2/lightanticheat-config)
 
 ## You want to contribute?
