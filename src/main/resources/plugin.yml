@@ -8,8 +8,8 @@ description: A lightweight and customizable anticheat, designed to detect common
 authors: [ Vekster, pawsashatoy, Onako2 ]
 website: www.reworlds.net
 commands:
-  lightanticheat:
-    aliases: [ light, lac, anticheat, ac ]
+  rhythmanticheat:
+    aliases: [ rhythm, rhythmac, anticheat, ac ]
 permissions:
   lightanticheat.checks:
     description: Allows /anticheat checks command
