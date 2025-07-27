@@ -6,7 +6,7 @@ folia-supported: true
 softdepend: [ Geyser-Spigot, floodgate, ViaVersion, GSit, mcMMO, ValhallaMMO, VeinMiner, AureliumSkills, ExecutableItems, EnchantsSquared ]
 description: A lightweight and customizable anticheat, designed to detect common hacks.
 authors: [ Vekster, pawsashatoy, Onako2 ]
-website: www.reworlds.net
+website: github.com/Traveler1145141/RhythmAntiCheat
 commands:
   rhythmanticheat:
     aliases: [ rhythm, rhythmac, anticheat, ac ]
