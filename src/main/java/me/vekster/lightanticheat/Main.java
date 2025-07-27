@@ -107,7 +107,7 @@ public class Main extends JavaPlugin {
         ConnectionStabilityListener.loadConnectionCalculator();
         registerListener(new ConnectionStabilityListener());
 
-        PluginCommand antiCheatCommand = getCommand("lightanticheat");
+        PluginCommand antiCheatCommand = getCommand("rhythmanticheat");
         if (antiCheatCommand != null) {
             antiCheatCommand.setExecutor(new LACCommand());
             antiCheatCommand.setTabCompleter(new LACCommand());
