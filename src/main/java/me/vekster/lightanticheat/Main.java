@@ -132,11 +132,6 @@ public class Main extends JavaPlugin {
         registerCheckListener(new NoFallB());
         registerCheckListener(new NoSlowA());
         registerCheckListener(new SpeedA());
-        registerCheckListener(new SpeedB());
-        registerCheckListener(new SpeedD());
-        registerCheckListener(new SpeedE());
-        registerCheckListener(new SpeedF());
-        registerCheckListener(new SpeedC());
         registerCheckListener(new StepA());
         registerCheckListener(new TridentA());
         registerCheckListener(new BoatA());
